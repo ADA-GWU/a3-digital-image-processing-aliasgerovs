@@ -88,7 +88,6 @@ def apply_unsharp_filter(image):
 parser = argparse.ArgumentParser()
 parser.add_argument('number_of_images', type=int, help='Number of images to process')
 args = parser.parse_args()
-
 image_folder_path = 'noisy/chemical/'
 
 image_files = [f for f in os.listdir(image_folder_path) if os.path.isfile(os.path.join(image_folder_path, f))]
