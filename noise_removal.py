@@ -3,6 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import argparse
 import os
+from skimage.metrics import peak_signal_noise_ratio as psnr
+from skimage.metrics import structural_similarity as ssim
 
 def apply_morphological_operations(image):
     dilation_kernel = np.ones((3, 3), np.uint8)
@@ -85,6 +87,25 @@ def apply_unsharp_filter(image):
     unsharp_image = cv2.addWeighted(image, 1.5, gaussian_blur, -0.5, 0, image)
     return unsharp_image
 
+def evaluate_filter_performance(original_image, filtered_image):
+    psnr_value = psnr(original_image, filtered_image, data_range=filtered_image.max() - filtered_image.min())
+    ssim_value = ssim(original_image, filtered_image, data_range=filtered_image.max() - filtered_image.min())
+    return psnr_value, ssim_value
+
+filter_functions = [
+    ('Original', lambda x: x),
+    ('Morphological', apply_morphological_operations),
+    ('Mean Filter', apply_mean_filter),
+    ('Median Filter', apply_median_filter),
+    ('Gaussian Smoothing', apply_gaussian_smoothing),
+    ('Bilateral Filter', apply_bilateral_filter),
+    ('Conservative Smoothing', apply_conservative_smoothing),
+    ('Low-Pass Filter', apply_low_pass_filter),
+    ('High Pass Filter', apply_high_pass_filter),
+    ('Laplacian', apply_laplacian_filter),
+    ('Unsharp Masking', apply_unsharp_filter)
+]
+
 parser = argparse.ArgumentParser()
 parser.add_argument('number_of_images', type=int, help='Number of images to process')
 args = parser.parse_args()
@@ -113,9 +134,36 @@ for image_name in image_files:
     images = [image, morphological, mean_filtered_image, median_filtered_image, gaussian_smoothed_image,
               conservative_smoothed_image, low_pass_filtered_image, high_pass_filtered_image, laplacian_filtered_image, unsharp_image, bilateral_filtered_image]
 
+    psnr_scores = []
+    ssim_scores = []
+
+    for i, filtered_image in enumerate(images[1:], start=1):
+        psnr_value, ssim_value = evaluate_filter_performance(image, filtered_image)
+        psnr_scores.append(psnr_value)
+        ssim_scores.append(ssim_value)
+
     plt.figure(figsize=(18, 12))
     for i in range(len(images)):
         plt.subplot(3, 4, i + 1), plt.imshow(images[i], 'gray')
         plt.title(titles[i])
         plt.xticks([]), plt.yticks([])
+    plt.show()
+
+    plt.figure(figsize=(12, 6))
+    # PSNR scores plot
+    plt.subplot(1, 2, 1)
+    plt.bar(range(1, len(psnr_scores) + 1), psnr_scores, tick_label=titles[1:])
+    plt.title('PSNR Scores by Filter')
+    plt.xlabel('Filter')
+    plt.ylabel('PSNR')
+    plt.xticks(rotation=45)
+
+    # SSIM scores plot
+    plt.subplot(1, 2, 2)
+    plt.bar(range(1, len(ssim_scores) + 1), ssim_scores, tick_label=titles[1:])
+    plt.title('SSIM Scores by Filter')
+    plt.xlabel('Filter')
+    plt.ylabel('SSIM')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
     plt.show()
