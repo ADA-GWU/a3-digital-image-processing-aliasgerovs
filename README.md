@@ -5,7 +5,7 @@ This repo contains scripts dedicated to the assignment on digital image preproce
 ## Installation
 ### Prerequisites
 
-- Python >= 3.10
+- Python >= 3.9
 - Libraries: OpenCV, NumPy, Matplotlib, PyDICOM (as needed)
 - DICOM dataset provided by the RSNA (for MRI data visualization)
 
