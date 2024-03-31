@@ -32,7 +32,7 @@ For images in the noisy/chemical folder:
 python3 noise_removal.py <N>
 ```
 
-Where <N> specifies the number of images to process. For example, --number_of_images 3 processes the first three images in the folder.
+Where <N> specifies the number of images to process. For example, 3 processes the first three images in the folder.
 
 ![alt text](outputs/Figure_1.png)
 
@@ -44,7 +44,7 @@ Scores.
 
 For images in the noisy/speckle folder:
 
-- Selecting techniques to clean speckle noise from the images.
+- Technique to clean speckle noise from the images.
 
 Example command:
 
