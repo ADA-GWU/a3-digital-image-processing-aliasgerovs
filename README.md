@@ -34,6 +34,12 @@ python noise_removal.py --number_of_images <N>
 
 Where <N> specifies the number of images to process. For example, --number_of_images 3 processes the first three images in the folder.
 
+![alt text](outputs/Figure_1.png)
+
+Scores.
+
+![alt text](outputs/Figure_2.png)
+
 2. Speckle Removal
 
 For images in the noisy/speckle folder:
@@ -49,6 +55,8 @@ python speckle_removal.py --number_of_images <N>
 
 Replace <N> with the number of images you intend to process.
 
+![alt text](outputs/Figure_3.png)
+
 3. Visualization of MRI Data
 Using the RSNA dataset under the train folder:
 
@@ -60,5 +68,5 @@ Example command:
 ```
 python mri_visualization.py
 ```
-
+![alt text](outputs/Figure_4.png)
 
