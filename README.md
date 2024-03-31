@@ -29,7 +29,7 @@ For images in the noisy/chemical folder:
 - Analyzing the effects of different filters and determine the best and worst among them.
 
 ```
-python noise_removal.py --number_of_images <N>
+python3 noise_removal.py <N>
 ```
 
 Where <N> specifies the number of images to process. For example, --number_of_images 3 processes the first three images in the folder.
@@ -49,7 +49,7 @@ For images in the noisy/speckle folder:
 Example command:
 
 ```
-python speckle_removal.py --number_of_images <N>
+python3 speckle_removal.py <N>
 ```
 
 Replace <N> with the number of images you intend to process.
@@ -64,7 +64,7 @@ Replace <N> with the number of images you intend to process.
 Example command:
 
 ```
-python mri_visualization.py
+python3 mri_visualization.py
 ```
 ![alt text](outputs/Figure_4.png)
 
