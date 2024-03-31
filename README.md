@@ -1,5 +1,5 @@
 ## Overview
-This repo contains scripts dedicated to the assignment on digital image preprocessing. The project is structured around three primary tasks: noise removal and reconstruction, speckle removal, and visualization of MRI data. The goal is to demonstrate various image processing techniques without the use of machine learning algorithms, focusing on practical applications like cleaning images, reconstructing details, and analyzing medical imaging data.
+This repo contains scripts of our assignment on digital image preprocessing. The repo is structured around three primary tasks: noise removal and reconstruction, speckle removal, and visualization of MRI data. The goal is to demonstrate various image processing techniques without the use of machine learning algorithms, focusing on practical applications like cleaning images, reconstructing details, and analyzing medical imaging data.
 
 
 ## Installation
