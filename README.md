@@ -29,8 +29,10 @@ For images in the noisy/chemical folder:
 - Analyze the effects of different filters and determine the best and worst among them.
 
 ```
-python noise_removal.py 
+python noise_removal.py --number_of_images <N>
 ```
+
+Where <N> specifies the number of images to process. For example, --number_of_images 3 processes the first three images in the folder.
 
 2. Speckle Removal
 
@@ -42,8 +44,10 @@ For images in the noisy/speckle folder:
 Example command:
 
 ```
-python speckle_removal.py
+python speckle_removal.py --number_of_images <N>
 ```
+
+Replace <N> with the number of images you intend to process.
 
 3. Visualization of MRI Data
 Using the RSNA dataset under the train folder:
