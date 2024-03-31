@@ -25,8 +25,8 @@ pip install -r requirements.txt
 
 For images in the noisy/chemical folder:
 
-- Apply various filtering techniques to remove noise and reconstruct the shapes.
-- Analyze the effects of different filters and determine the best and worst among them.
+- Applying various filtering techniques to remove noise and reconstruct the shapes.
+- Analyzing the effects of different filters and determine the best and worst among them.
 
 ```
 python noise_removal.py --number_of_images <N>
@@ -44,8 +44,7 @@ Scores.
 
 For images in the noisy/speckle folder:
 
-- Select appropriate techniques to clean speckle noise from the images.
-- Focus on non-ML algorithms for this task.
+- Selecting techniques to clean speckle noise from the images.
 
 Example command:
 
@@ -58,10 +57,9 @@ Replace <N> with the number of images you intend to process.
 ![alt text](outputs/Figure_3.png)
 
 3. Visualization of MRI Data
-Using the RSNA dataset under the train folder:
 
-- Write code to describe the contents and metadata of DICOM files.
-- Visualize different layers of MRI images.
+- Describing the contents and metadata of DICOM files.
+- Visualizing different layers of MRI images.
 
 Example command:
 
