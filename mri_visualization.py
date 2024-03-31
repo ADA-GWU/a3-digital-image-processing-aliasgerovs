@@ -19,7 +19,7 @@ def visualize_slices(slices):
         axes[i].axis('off')
     plt.show()
 
-dicom_directory = 'mri/Brain Tumor Train/00002/T1wCE'
+dicom_directory = 'mri/00011/FLAIR'
 mri_slices = load_mri_slices(dicom_directory)
 
 print_metadata(mri_slices[0])
